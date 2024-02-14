@@ -16,7 +16,7 @@ namespace Pixygon.Actors {
             if (renderer is SpriteRenderer spriteRenderer)
                 _spriteRenderer = spriteRenderer;
             _actor = actor;
-            _iFrameLength = actor.ActorData._iFrameLength;
+            _iFrameLength = .4f; //Fix this!! actor.ActorData._iFrameLength;
         }
 
         public void SetIFrames() {
