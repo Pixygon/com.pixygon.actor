@@ -22,6 +22,7 @@ namespace Pixygon.Actors {
         public UnityEvent OnDie => _onDie;
         public int Hp;
         public int MaxHp;
+        public ActorPatrolPattern ActorPatrolPattern;
 
         public virtual void Initialize(ActorData data) {
             _data = data;
@@ -56,6 +57,10 @@ namespace Pixygon.Actors {
         protected virtual void OnUnpause() {
             _isPaused = false;
             _actorController.WakeUp();
+        }
+
+        public virtual void SetPatrolPattern(ActorPatrolPattern patrolPattern) {
+            ActorPatrolPattern = patrolPattern;
         }
 
         public void Damage(DamageData damageData) {
