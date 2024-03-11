@@ -19,6 +19,7 @@ namespace Pixygon.Actors {
         public int _hp;
         public float _speed;
         public int _score;
+        public float _reactionTime = .5f;
         [Range(0f, 2f)] public float _poise = 1f;
         [Range(0f, 1f)] public float _burnResistance;
         [Range(0f, 1f)] public float _dazeResistance;
