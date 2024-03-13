@@ -11,5 +11,6 @@ namespace Pixygon.Actors {
         public bool _patrolOnlyLook;
         public float _patrolWaitTime;
         public Vector3[] _patrolPoints;
+        public PatrolPointData[] _patrolPointDatas;
     }
 }
