@@ -11,12 +11,9 @@ namespace Pixygon.Actors {
         public bool _patrolOnlyLook;
         public float _patrolWaitTime;
         public Vector3[] _patrolPoints;
-        [ContextMenuItem("Upgrade to new system", "UpgradeToNewSystem")]
         public PatrolPointData[] _patrolPointDatas;
         
-        
-
-        private void UpgradeToNewSystem() {
+        public void UpgradeToNewSystem() {
             _patrolPointDatas = new PatrolPointData[_patrolPoints.Length];
             for (var i = 0; i < _patrolPoints.Length; i++) {
                 _patrolPointDatas[i] = new PatrolPointData() {
