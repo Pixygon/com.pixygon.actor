@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 namespace Pixygon.Actors {
-    [CreateAssetMenu(fileName = "Pixygon/Actors", menuName = "New ActorData", order = 0)]
+    [CreateAssetMenu(menuName = "Pixygon/Actors", fileName = "New ActorData", order = 0)]
     public class ActorData : IdObject {
         public AssetReference _actorRef;
         public bool _isHostile;
         public bool _isKillable;
-        //public AIListenerData[] _listeners;
+        //public AIListenerData[] _listeners; <-- ADD
         
         public EffectData _damageFx;
         public EffectData _deathFx;
