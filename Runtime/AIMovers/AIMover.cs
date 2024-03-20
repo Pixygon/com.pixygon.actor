@@ -11,6 +11,10 @@ namespace Pixygon.Actors {
         protected bool _rush;
         protected Actors.Actor _actor;
         protected bool _init;
+
+        public Action<GameObject> AttackAction;
+        public Action<GameObject> FindAction;
+        public Action<Vector3> InvestigateAction;
         
         public bool Pause { get; protected set; }
         
@@ -56,23 +60,19 @@ namespace Pixygon.Actors {
         protected void Teleport(GameObject g = null) {
             transform.position = (Vector2)transform.position + Random.insideUnitCircle.normalized * 5f;
         }
-
-        private Action<GameObject> _attack;
-        private Action<GameObject> _find;
-        private Action<Vector3> _investigate;
         protected void Attack(GameObject g = null) {
             //(_actor as MicroActorAI).Attack(g);
-            _attack.Invoke(g);
+            AttackAction?.Invoke(g);
         }
 
         protected void Find(GameObject g = null) {
             //(_actor as MicroActorAI).Find(g);
-            _find.Invoke(g);
+            FindAction?.Invoke(g);
         }
 
         protected void Investigate(GameObject g = null) {
             //(_actor as MicroActorAI).Investigate(g.transform.position);
-            _investigate.Invoke(g.transform.position);
+            InvestigateAction?.Invoke(g.transform.position);
         }
 
         private void Update() {
