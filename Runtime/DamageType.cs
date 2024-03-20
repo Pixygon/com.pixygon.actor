@@ -1,4 +1,4 @@
-﻿namespace Pixygon.Actor {
+﻿namespace Pixygon.Actors {
     public enum DamageType {
         Normal,
         Fire,

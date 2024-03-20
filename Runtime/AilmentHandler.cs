@@ -31,7 +31,6 @@
                 if (Random.value < ailment.ailmentActivationChance - resistance)
                     SetAilment(ailment.causedAilment, ailment.ailmentDuration);
             }
-
             private void SetAilment(Ailments ailment, float duration) {
                 _hasAnyAilment = true;
                 switch (ailment) {
@@ -57,12 +56,10 @@
                         break;
                 }
             }
-
             private void Update() {
                 if (PauseManager.Pause) return;
                 HandleAilment();
             }
-
             private void HandleAilment() {
                 if (!_hasAnyAilment) return;
                 if (_burnTimer < 0 && IsBurning) {

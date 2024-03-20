@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 namespace Pixygon.Actors {
-    [CreateAssetMenu(menuName = "Pixygon/Actors", fileName = "New ActorData", order = 0)]
+    [CreateAssetMenu(menuName = "Pixygon/Actors/New ActorData", fileName = "New ActorData", order = 0)]
     public class ActorData : IdObject {
         public AssetReference _actorRef;
         public bool _isHostile;

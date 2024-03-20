@@ -9,7 +9,7 @@ namespace Pixygon.Actors {
         
         protected bool _xFlip;
         protected bool _rush;
-        protected Actors.Actor _actor;
+        protected Actor _actor;
         protected bool _init;
 
         public Action<GameObject> AttackAction;
@@ -18,8 +18,11 @@ namespace Pixygon.Actors {
         
         public bool Pause { get; protected set; }
         
-        public virtual void Initialize(Actors.Actor actor) {
+        public virtual void Initialize(Actor actor, Action<GameObject> attackAction, Action<GameObject> findAction, Action<Vector3> investigateAction) {
             _actor = actor;
+            AttackAction += attackAction;
+            FindAction += findAction;
+            InvestigateAction += investigateAction;
             SetupAIListeners();
             _init = true;
         }
