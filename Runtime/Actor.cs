@@ -11,21 +11,19 @@ namespace Pixygon.Actors {
         [SerializeField] protected ActorController _actorController;
         [SerializeField] protected ActorStates _actorStates;
         [SerializeField] protected Renderer _renderer;
-        protected ActorData _data;
-        protected bool _isDead;
         protected bool _init;
         protected bool _isPaused;
 
         public bool Invincible;
-        public ActorData ActorData => _data;
-        public bool IsDead => _isDead;
+        public ActorData ActorData { get; protected set; }
+        public bool IsDead { get; protected set; }
         public UnityEvent OnDie => _onDie;
         public int Hp;
         public int MaxHp;
         public PatrolData ActorPatrolData;
 
         public virtual void Initialize(ActorData data) {
-            _data = data;
+            ActorData = data;
             MaxHp = data._hp;
             Hp = MaxHp;
             _init = true;
@@ -86,8 +84,8 @@ namespace Pixygon.Actors {
         }
 
         protected virtual void Die() {
-            if (_isDead) return;
-            _isDead = true;
+            if (IsDead) return;
+            IsDead = true;
             Destroy(gameObject);
             //RoundManager.Instance.ObjectPoolManager.SpawnXp(transform.position);
             //if (_ailmentHandler.IsZapped && RoundManager.Instance.Player.Stats.AirZap) DoChainZap();
@@ -99,7 +97,7 @@ namespace Pixygon.Actors {
         }
 
         public void InstaKill() {
-            _isDead = true;
+            IsDead = true;
             Destroy(gameObject);
             _iFrameHandler.StopIFrames();
         }
