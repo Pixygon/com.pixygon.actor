@@ -9,7 +9,7 @@ namespace Pixygon.Actors {
         public AssetReference _actorRef;
         public bool _isHostile;
         public bool _isKillable;
-        //public AIListenerData[] _listeners; <-- ADD
+        public AIListenerData[] _listeners;
         
         public EffectData _damageFx;
         public EffectData _deathFx;

@@ -3,18 +3,18 @@ using Pixygon.Core;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Pixygon.Micro.AI {
+namespace Pixygon.Actors {
     public class AIMover : MonoBehaviour {
         [SerializeField] protected SpriteRenderer _sprite;
         
         protected bool _xFlip;
         protected bool _rush;
-        protected MicroActor _actor;
+        protected Actors.Actor _actor;
         protected bool _init;
         
         public bool Pause { get; protected set; }
         
-        public virtual void Initialize(MicroActor actor) {
+        public virtual void Initialize(Actors.Actor actor) {
             _actor = actor;
             SetupAIListeners();
             _init = true;
@@ -56,16 +56,23 @@ namespace Pixygon.Micro.AI {
         protected void Teleport(GameObject g = null) {
             transform.position = (Vector2)transform.position + Random.insideUnitCircle.normalized * 5f;
         }
+
+        private Action<GameObject> _attack;
+        private Action<GameObject> _find;
+        private Action<Vector3> _investigate;
         protected void Attack(GameObject g = null) {
-            (_actor as MicroActorAI).Attack(g);
+            //(_actor as MicroActorAI).Attack(g);
+            _attack.Invoke(g);
         }
 
         protected void Find(GameObject g = null) {
-            (_actor as MicroActorAI).Find(g);
+            //(_actor as MicroActorAI).Find(g);
+            _find.Invoke(g);
         }
 
         protected void Investigate(GameObject g = null) {
-            (_actor as MicroActorAI).Investigate(g.transform.position);
+            //(_actor as MicroActorAI).Investigate(g.transform.position);
+            _investigate.Invoke(g.transform.position);
         }
 
         private void Update() {

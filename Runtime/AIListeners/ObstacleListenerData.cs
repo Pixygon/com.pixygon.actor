@@ -1,7 +1,7 @@
 using UnityEngine;
 
-namespace Pixygon.Micro.AI {
-    [CreateAssetMenu(menuName = "Pixygon/Micro/Obstacle Listener Data", fileName = "New ObstacleListenerData")]
+namespace Pixygon.Actors {
+    [CreateAssetMenu(menuName = "Pixygon/Actor/Obstacle Listener Data", fileName = "New ObstacleListenerData")]
     public class ObstacleListenerData : AIListenerData {
         public bool _isCircular;
         public float _distance;

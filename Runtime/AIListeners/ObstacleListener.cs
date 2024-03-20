@@ -2,7 +2,7 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Pixygon.Micro.AI {
+namespace Pixygon.Actors {
     public class ObstacleListener : AIListener {
         private ObstacleListenerData _data;
         private Vector3 _pos;

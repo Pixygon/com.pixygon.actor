@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Pixygon.Micro.AI {
+namespace Pixygon.Actors {
     public class AIListener : MonoBehaviour {
         public Action<GameObject> _triggerAction;
         public bool Active { get; set; }
